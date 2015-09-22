@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<table>
+			<tr th:each="media : ${medias}">
+				<td><span th:text="${media.title}"></span>
+					<div th:if="${media.type == 'game'}">
+						<span th:each="platform : ${media.platforms}"
+							th:text="${platform.name}"> </span>
+					</div></td>
+				<td th:text="${media.type}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

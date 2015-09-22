@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration debug="true">
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>${log.console.level}</level>
+		</filter>
+	</appender>
+
+	<appender name="file"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.directory}/${log.webapp.file}</file>
+		<append>false</append>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover with automatic file compression -->
+			<fileNamePattern>${log.directory}/${log.webapp.file}.%d{yyyyMMdd}.gz</fileNamePattern>
+			<!-- keep 60 days' worth of history -->
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+  <logger name="org.springframework" level="INFO" />
+  <logger name="org.hibernate" level="${log.level.hibernate}" />
+  <logger name="org.thymeleaf" level="${log.level.thymeleaf}"/>
+
+	<root level="TRACE">
+		<appender-ref ref="file" />
+		<appender-ref ref="stdout" />
+	</root>
+</configuration>
