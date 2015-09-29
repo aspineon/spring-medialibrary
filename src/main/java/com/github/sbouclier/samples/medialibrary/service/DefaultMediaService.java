@@ -20,7 +20,7 @@ import com.github.sbouclier.samples.medialibrary.repository.MediaRepository;
 @Service
 public class DefaultMediaService implements MediaService {
 
-	private static final Logger logger = LoggerFactory.getLogger(DefaultMediaService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultMediaService.class);
 
 	@Autowired
 	MediaRepository mediaRepository;
@@ -30,7 +30,7 @@ public class DefaultMediaService implements MediaService {
 	 */
 	@Override
 	public void persist(Media media) {
-		logger.debug("persist(media={})", media);
+		LOG.debug("persist(media={})", media);
 		mediaRepository.save(media);
 	}
 

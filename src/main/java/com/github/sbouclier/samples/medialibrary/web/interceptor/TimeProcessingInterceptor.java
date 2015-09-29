@@ -16,7 +16,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  */
 public class TimeProcessingInterceptor extends HandlerInterceptorAdapter {
 
-	private static final Logger logger = LoggerFactory.getLogger(TimeProcessingInterceptor.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TimeProcessingInterceptor.class);
 
 	private static final String START_TIME = "startTime";
 
@@ -26,10 +26,10 @@ public class TimeProcessingInterceptor extends HandlerInterceptorAdapter {
 		long startTime = System.currentTimeMillis();
 		request.setAttribute(START_TIME, startTime);
 
-		if (logger.isDebugEnabled()) {
-			logger.debug("Request url={}", request.getRequestURL().toString());
-			logger.debug("host: {}", request.getHeader("host"));
-			logger.debug("status: {}", response.getStatus());
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Request url={}", request.getRequestURL().toString());
+			LOG.debug("host: {}", request.getHeader("host"));
+			LOG.debug("status: {}", response.getStatus());
 		}
 
 		return true;
@@ -42,8 +42,8 @@ public class TimeProcessingInterceptor extends HandlerInterceptorAdapter {
 		long executeTime = System.currentTimeMillis() - startTime;
 		request.setAttribute("executeTime", executeTime);
 
-		if (logger.isDebugEnabled()) {
-			logger.debug("Request url={} executeTime : {}ms", request.getRequestURL().toString(),
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Request url={} executeTime : {}ms", request.getRequestURL().toString(),
 			        executeTime);
 		}
 	}
@@ -57,7 +57,7 @@ public class TimeProcessingInterceptor extends HandlerInterceptorAdapter {
 
 		response.addHeader("elapsedTotalTime", String.valueOf(elapsedTotalTime));
 
-		logger.debug("Request url={} Time Taken={}ms", request.getRequestURL().toString(),
+		LOG.debug("Request url={} Time Taken={}ms", request.getRequestURL().toString(),
 		        elapsedTotalTime);
 	}
 }

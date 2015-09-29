@@ -63,5 +63,4 @@ public class Game extends Media {
 	public void setPegi(GamePegi pegi) {
 		this.pegi = pegi;
 	}
-
 }
