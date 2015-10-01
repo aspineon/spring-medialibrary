@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.sbouclier.samples.medialibrary.model.CD;
+import com.github.sbouclier.samples.medialibrary.model.DVD;
+import com.github.sbouclier.samples.medialibrary.model.Game;
 import com.github.sbouclier.samples.medialibrary.model.Media;
 import com.github.sbouclier.samples.medialibrary.repository.MediaRepository;
 
@@ -39,6 +42,35 @@ public class DefaultMediaService implements MediaService {
 	 */
 	@Override
     public List<Media> getAll() {
+		LOG.debug("getAll()");
 	    return (List<Media>) mediaRepository.findAll();
+    }
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+    public List<CD> getAllMediaCD() {
+	    LOG.debug("getAllMediaCD()");
+	    return (List<CD>) mediaRepository.findAllMediaCD();
+    }
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+    public List<DVD> getAllMediaDVD() {
+	    LOG.debug("getAllMediaDVD()");
+	    return (List<DVD>) mediaRepository.findAllMediaDVD();
+    }
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+    public List<Game> getAllMediaGame() {
+	    LOG.debug("getAllMediaGame()");
+	    return (List<Game>) mediaRepository.findAllMediaGame();
     }
 }

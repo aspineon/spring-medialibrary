@@ -24,6 +24,7 @@ insert into media(id, title, created_date) values (20, 'Mario Kart 8', CURRENT_T
 insert into media(id, title, created_date) values (21, 'Gears of War', CURRENT_TIMESTAMP);
 insert into media(id, title, created_date) values (22, 'Gears of War 2', CURRENT_TIMESTAMP);
 insert into media(id, title, created_date) values (23, 'Gears of War 3', CURRENT_TIMESTAMP);
+insert into media(id, title, created_date) values (24, 'Greatest Hits II', CURRENT_TIMESTAMP);
 
 insert into dvd(id, year) values (1, 2000);
 insert into dvd(id, year) values (2, 1999);
@@ -113,7 +114,22 @@ insert into game_platforms(game_id, platforms_id) values (21, 8);
 insert into game_platforms(game_id, platforms_id) values (22, 7);
 insert into game_platforms(game_id, platforms_id) values (23, 7);
 
-insert into song(title, artist, album, duration) values ('A Kind of Magic','Queen','Greatest Hits II', 267);
-insert into song(title, artist, album, duration) values ('The Show Must Go On','Queen','Greatest Hits II', 279);
-insert into song(title, artist, album, duration) values ('I Want it All','Queen','Greatest Hits II', 282);
-insert into song(title, artist, album, duration) values ('Just Be','Tiësto','Just Be', 196);
+insert into cd(id, artist, year) values (24, 'Queen', 1991);
+
+insert into song(cd_id, position, title, duration) values (24, 1, 'A Kind of Magic', 262);
+insert into song(cd_id, position, title, duration) values (24, 2, 'Under Pressure', 248);
+insert into song(cd_id, position, title, duration) values (24, 3, 'Radio Ga Ga', 343);
+insert into song(cd_id, position, title, duration) values (24, 4, 'I Want it All', 241);
+insert into song(cd_id, position, title, duration) values (24, 5, 'I Want to Break Free', 258);
+insert into song(cd_id, position, title, duration) values (24, 6, 'Innuendo', 387);
+insert into song(cd_id, position, title, duration) values (24, 7, 'It''s a Hard Life', 249);
+insert into song(cd_id, position, title, duration) values (24, 8, 'Breakthru', 249);
+insert into song(cd_id, position, title, duration) values (24, 9, 'Who Wants to Live Forever', 316);
+insert into song(cd_id, position, title, duration) values (24, 10, 'Headlong', 277);
+insert into song(cd_id, position, title, duration) values (24, 11, 'The Miracle', 301);
+insert into song(cd_id, position, title, duration) values (24, 12, 'I''m Going Slightly Mad', 262);
+insert into song(cd_id, position, title, duration) values (24, 13, 'The Invisible Man', 238);
+insert into song(cd_id, position, title, duration) values (24, 14, 'Hammer to Fall', 220);
+insert into song(cd_id, position, title, duration) values (24, 15, 'Friends Will Be Friends', 248);
+insert into song(cd_id, position, title, duration) values (24, 16, 'The Show Must Go On', 277);
+insert into song(cd_id, position, title, duration) values (24, 17, 'One Vision', 242);
