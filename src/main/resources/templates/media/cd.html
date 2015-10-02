@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Artist</th>
+					<th>Title</th>
+					<th>Year</th>
+					<th>Songs</th>
+				</tr>
+			</thead>
+			<tr th:each="media : ${cd}">
+				<td><span th:text="${media.artist}"></span></td>
+				<td><span th:text="${media.title}"></span></td>
+				<td><span th:text="${media.year}"></span></td>
+				<td><span th:text="${media.songs.size()}"></span></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
