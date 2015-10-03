@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>PEGI</th>
+					<th>Platforms</th>
+				</tr>
+			</thead>
+			<tr th:each="media : ${game}">
+				<td><span th:text="${media.title}"></span></td>
+				<td><span th:text="${media.pegi}"></span></td>
+				<td><span th:text="${media.platforms}"></span></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
